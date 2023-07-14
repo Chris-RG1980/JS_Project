@@ -36,8 +36,21 @@ function runGame(gameType) {
     }
 }
 
+/**
+ * Checks the answer against the first element in 
+ * the returned calculateCorrectAnswer array
+ */
 function checkAnswer() {
 
+    let userAnswer = parseInt(document.getElementById('answer-box').value);
+    let calculatedAnswer = calculateCorrectAnswer();
+    let isCorrect = userAnswer === calculatedAnswer[0];
+
+    if (isCorrect) {
+        alert('Hey! You got it right! :D');
+    } else {
+        alert(`Awww.... you answered ${userAnswer}. The correct answer was ${calculatedAnswer[0]}!`);
+    }
 }
 
 /**
@@ -53,8 +66,8 @@ function calculateCorrectAnswer() {
     if (operator === '+') {
         return [operand1 + operand2, 'addition'];
     } else {
-        alert(`Unimplemented operator $(operator)`);
-        throw `Unimplemented operator $(operator).Aborting`;
+        alert(`Unimplemented operator ${operator}`);
+        throw `Unimplemented operator ${operator}.Aborting`;
     }
 
 }
